@@ -1,5 +1,5 @@
 
-import { Authenticator } from '@aws-amplify/ui-react';
+// import { Authenticator } from '@aws-amplify/ui-react';
 import { Auth } from 'aws-amplify';
 
 function Home() {
@@ -15,11 +15,11 @@ function Home() {
     return (
         <div>
             <h1>Welcome to my app!</h1>
-            <Authenticator socialProviders={['google']} >
+            {/* <Authenticator socialProviders={['google']} >
                 <main>
                     <h1>Hello</h1>
                 </main>
-            </Authenticator>
+            </Authenticator> */}
             <button onClick={handleGoogleLogin} style={{ backgroundColor: 'gray' }}>Login with Google</button>
         </div>
     );
