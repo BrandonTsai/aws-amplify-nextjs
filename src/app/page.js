@@ -1,18 +1,18 @@
-'use client';
+import { Amplify } from 'aws-amplify';
 
-// import { Authenticator } from '@aws-amplify/ui-react';
-import { Auth } from 'aws-amplify';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
-function Home() {
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
 
+function App({ signOut, user }) {
     return (
-        <div>
-            <h1>Welcome to my app!</h1>
-            <button onClick={() => Auth.signOut()}>Sign Out</button>
-            <button onClick={() => Auth.federatedSignIn({ provider: "Google" })}>Google Sign In</button>
-        </div >
+        <>
+            <h1>Hello {user.username}</h1>
+            <button onClick={signOut}>Sign out</button>
+        </>
     );
 }
 
-// export default withAuthenticator(Home);
-export default Home;
+export default withAuthenticator(App);
