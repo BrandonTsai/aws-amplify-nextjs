@@ -1,16 +1,16 @@
 "use client"
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import { AmplifyAuthenticator, AmplifySignInButton } from '@aws-amplify/ui-react';
+import { Authenticator } from '@aws-amplify/ui-react';
 import "@aws-amplify/ui-react/styles.css";
 
-function App() {
+export default function App() {
     return (
-        <AmplifyAuthenticator>
-            <AmplifySignInButton slot="federated" provider="Google" />
-            <h1>Hello World</h1>
-        </AmplifyAuthenticator>
+        <Authenticator>
+            {({ signOut, user }) => (
+                <main>
+                    <h1>Hello {user.username}</h1>
+                    <button onClick={signOut}>Sign out</button>
+                </main>
+            )}
+        </Authenticator>
     );
 }
-// export default App
-
-export default withAuthenticator(App);
