@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Amplify } from "aws-amplify";
-import awsExports from "../../aws-exports";
+import awsExports from "../aws-exports.js";
 
 const inter = Inter({ subsets: ['latin'] })
 
