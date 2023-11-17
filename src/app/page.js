@@ -1,15 +1,10 @@
-
+"use client"
 import { withAuthenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
 
-
-function App({ signOut, user }) {
+function App() {
     return (
-        <>
-            <h1>Hello {user.username}</h1>
-            <button onClick={signOut}>Sign out</button>
-        </>
+        <h1>Hello World</h1>
     );
 }
-
+// export default App
 export default withAuthenticator(App);
