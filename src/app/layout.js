@@ -1,14 +1,10 @@
-import NavBar from './components/NavBar';
 
+import Header from './header'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Amplify } from "aws-amplify";
-import awsExports from "../aws-exports";
-import "@aws-amplify/ui-react/styles.css";
+import Provider from './provider'
 
 const inter = Inter({ subsets: ['latin'] })
-
-Amplify.configure({ ...awsExports, ssr: true });
 
 export const metadata = {
   title: 'Create Next App',
@@ -19,8 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavBar />
-        {children}
+        <Provider>
+          <Header />
+          {children}
+        </Provider>
       </body>
     </html>
   )
